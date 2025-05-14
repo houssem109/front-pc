@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-marque
+          [marque]="updatedMar"
+          (marqueUpdated)="marqueUpdated($event)"
+          [ajout]="ajout">
+
+        ></app-update-marque>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Marque</th>
+          </tr>
+        </thead>
+        @for(mar of marques; track mar.idMarque) {
+        <tbody>
+          <tr>
+            <td>{{ mar.idMarque }}</td>
+            <td>{{ mar.nomMarque }}</td>
+            <td><a class="btn btn-success" (click)="updateMar(mar)">Editer</a></td>
+
+          </tr>
+        </tbody>
+        }
+      </table>
+    </div>
+  </div>
+</div>

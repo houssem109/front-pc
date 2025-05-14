@@ -1,0 +1,111 @@
+<div class="container">
+    <div>
+      <h2>Ajouter un PC :</h2>
+    </div>
+    <form>
+      <div  hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID PC</label>
+        <input
+          type="number"
+          [(ngModel)]="newPc.idPc"
+          name="idPc"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Marque</label>
+        <select class="form-control form-control-lg" id="idMarque" name="idMarque"
+        [(ngModel)]="newIdMarque">
+        @for(mar of marques; track mar.idMarque){
+        <option [value]="mar.idMarque"> {{mar.nomMarque}} </option>
+        }
+        </select>
+        </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Modèle</label>
+        <input
+          type="text"
+          [(ngModel)]="newPc.modele"
+          name="modele"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Processeur</label>
+        <input
+          type="text"
+          [(ngModel)]="newPc.processeur"
+          name="processeur"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Mémoire RAM (GB)</label>
+        <input
+          type="number"
+          [(ngModel)]="newPc.memoireRAM"
+          name="memoireRAM"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Capacité Stockage (GB)</label>
+        <input
+          type="number"
+          [(ngModel)]="newPc.capaciteStockage"
+          name="capaciteStockage"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Carte Graphique</label>
+        <input
+          type="text"
+          [(ngModel)]="newPc.carteGraphique"
+          name="carteGraphique"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Système d'exploitation</label>
+        <input
+          type="text"
+          [(ngModel)]="newPc.systemeExploitation"
+          name="systemeExploitation"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Prix</label>
+        <input
+          type="number"
+          [(ngModel)]="newPc.prix"
+          name="prix"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date d'achat</label>
+        <input
+          type="date"
+          [(ngModel)]="newPc.dateAchat"
+          name="dateAchat"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="newPc.email"
+          name="email"
+          class="form-control"
+        />
+      </div>
+      <div class="mt-2">
+        <button type="submit" (click)="addPc()" class="btn btn-success">
+          Ajouter
+        </button>
+      </div>
+    </form>
+  </div>

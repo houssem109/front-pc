@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="container">
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2 mt-2">
+            <label>Modele en tapant</label>
+            <input
+              #modele
+              [(ngModel)]="searchTerm"
+              name="searchTerm"
+              class="form-control"
+            />
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>nbr</th>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Processeur</th>
+                <th>Mémoire RAM</th>
+                <th>Capacité Stockage</th>
+                <th>Carte Graphique</th>
+                <th>Système d'exploitation</th>
+                <th>Prix</th>
+                <th>Date d'achat</th>
+                <th>Email</th>
+                <!--  <th colspan="2">Actions</th> -->
+              </tr>
+            </thead>
+            @for (pc of pcs | searchFilter:searchTerm ; track pc.idP; let index=$index; let nbr=$count;
+            let last=$last) {
+            <tbody>
+              <tr>
+                <td>{{ index + 1 }}</td>
+                <td>{{ pc.idPc }}</td>
+                <td>{{ pc.marque.nomMarque }}</td>
+                <td>{{ pc.modele }}</td>
+                <td>
+                  {{ pc.processeur }}
+                </td>
+                <td>{{ pc.memoireRAM }} GB</td>
+                <td>{{ pc.capaciteStockage }} GB</td>
+                <td>
+                  {{ pc.carteGraphique }}
+                </td>
+                <td>{{ pc.systemeExploitation }}</td>
+                <td>{{ pc.prix }}</td>
+                <td>{{ pc.dateAchat | date : "dd/MM/yyyy" }}</td>
+                <td>
+                  {{ pc.email }}
+                </td>
+                <!-- <td>
+                <a class="btn btn-danger" (click)="supprimerPc(pc)"
+                  >Supprimer</a
+                >
+              </td>
+              <td><a class="btn btn-success" [routerLink]="['/updatePc',pc.idPc]">Modifier</a></td>
+ -->
+              </tr>
+            </tbody>
+            @if (last) {
+            <tfoot>
+              <tr>
+                <td colspan="14">
+                  <h4>Nombre : {{ nbr }}</h4>
+                </td>
+              </tr>
+            </tfoot>
+            } } @empty {
+            <h1>Aucun PC trouvé</h1>
+            }
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .table-responsive {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .table {
+      min-width: 1200px;
+    }
+
+    td[style*="text-overflow: ellipsis"] {
+      position: relative;
+    }
+
+    td[style*="text-overflow: ellipsis"]:hover {
+      overflow: visible;
+      white-space: normal;
+      z-index: 1;
+    }
+
+    td[style*="text-overflow: ellipsis"]:hover::after {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: white;
+      padding: 5px;
+      border: 1px solid #ddd;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      max-width: 300px;
+    }
+  </style>
+</div>

@@ -1,0 +1,111 @@
+<div class="container">
+    <div>
+      <h2>Modifier un PC :</h2>
+    </div>
+    <form>
+      <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID PC</label>
+        <input
+          type="number"
+          [(ngModel)]="currentPc.idPc"
+          name="idPc"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Marque</label>
+        <select class="form-control form-control-lg" id="idMarque" name="idMarque"
+        [(ngModel)]="updateIdMarque">
+        @for(mar of marques; track mar.idMarque)
+        {
+        <option [value]="mar.idMarque"> {{mar.nomMarque}} </option>
+        }
+        </select>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Modèle</label>
+        <input
+          type="text"
+          [(ngModel)]="currentPc.modele"
+          name="modele"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Processeur</label>
+        <input
+          type="text"
+          [(ngModel)]="currentPc.processeur"
+          name="processeur"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Mémoire RAM (GB)</label>
+        <input
+          type="number"
+          [(ngModel)]="currentPc.memoireRAM"
+          name="memoireRAM"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Capacité Stockage (GB)</label>
+        <input
+          type="number"
+          [(ngModel)]="currentPc.capaciteStockage"
+          name="capaciteStockage"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Carte Graphique</label>
+        <input
+          type="text"
+          [(ngModel)]="currentPc.carteGraphique"
+          name="carteGraphique"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Système d'exploitation</label>
+        <input
+          type="text"
+          [(ngModel)]="currentPc.systemeExploitation"
+          name="systemeExploitation"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Prix</label>
+        <input
+          type="number"
+          [(ngModel)]="currentPc.prix"
+          name="prix"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date d'achat</label>
+        <input
+          type="date"
+          [(ngModel)]="currentPc.dateAchat"
+          name="dateAchat"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="currentPc.email"
+          name="email"
+          class="form-control"
+        />
+      </div>
+      <div class="mt-2">
+        <button type="submit" (click)="updatePc()" class="btn btn-success">Modifer</button>
+
+      </div>
+    </form>
+  </div>
